@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">My Dear Recipes</string>
+    <string name="hint_search">Type the recipe name</string>
+    <string name="title_activity_detail">Recipe details</string>
+
+    <string name="ingredients">Ingredients</string>
+    <string name="more">More Informations</string>
+    <string name="site_publisher">Publisher Site</string>
+
+    <string name="tab_search" >Search</string>
+    <string name="tab_favorites">Favorites</string>
+
+    <string name="msg_added_favorites">Added to favorites</string>
+    <string name="msg_removed_favorites">Deleted from favorites</string>
+    <string name="text_undo">Undo</string>
+    <string name="empty_text">No recipes to be shown\n at the moment</string>
+
+    <string name="menu_share">Share</string>
+    <string name="share_text">Prepare \'%1$s\' here is the ingredients:\n %2$s</string>
+</resources>

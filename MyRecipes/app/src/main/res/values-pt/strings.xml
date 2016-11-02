@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Queridas Receitas</string>
+    <string name="hint_search">Digite o nome/ingrediente da receita</string>
+    <string name="title_activity_detail">Recipe details</string>
+
+    <string name="ingredients">Ingredientes</string>
+    <string name="more">Mais informações</string>
+    <string name="site_publisher">Site do autor</string>
+
+    <string name="tab_search" >Buscar</string>
+    <string name="tab_favorites">Favoritos</string>
+
+    <string name="msg_added_favorites">Adicionado as favoritas</string>
+    <string name="msg_removed_favorites">Deletada das favoritas</string>
+    <string name="text_undo">Desfazer</string>
+    <string name="empty_text">Sem receitas para mostrar no momento</string>
+
+    <string name="menu_share">Compartilhar</string>
+    <string name="share_text">Aprenda a fazer \'%1$s\' com estes ingredientes:\n %2$s</string>
+</resources>
