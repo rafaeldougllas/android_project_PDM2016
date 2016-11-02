@@ -24,9 +24,7 @@ public class RecipesProvider extends ContentProvider {
     // MOVIES_URI = "content://" + AUTHORITY +"/"+ PATH +"/recipes"
     public static Uri RECIPES_URI = BASE_URI.withAppendedPath(BASE_URI, PATH);
 
-    // Conforme implementação do getType(), nosso provider aceita dois tipos de Uri:
-    // GENERICA, usada no insert e query   = content://com.example.rafael.recipes/recipes
-    // POR ID, usada no delete e query = content://com.example.rafael.recipes/recipes/{id_recipe}
+
     private static final int TYPE_GENERIC = 0;
     private static final int TYPE_ID = 1;
 
@@ -50,10 +48,8 @@ public class RecipesProvider extends ContentProvider {
         int uriType = mMatcher.match(uri);
         switch (uriType){
             case TYPE_GENERIC:
-                // Informamos ao android que vamos retornar vários registros
                 return ContentResolver.CURSOR_DIR_BASE_TYPE +"/"+ AUTHORITY;
             case TYPE_ID:
-                // Informamos ao android que vamos retornar um único registro
                 return ContentResolver.CURSOR_ITEM_BASE_TYPE +"/"+ AUTHORITY;
             default:
                 throw new IllegalArgumentException("Invalid Uri");
@@ -94,7 +90,6 @@ public class RecipesProvider extends ContentProvider {
                     RecipeContract._ID +" = ?",
                     new String[] { String.valueOf(id) } );
             db.close();
-            // Se nenhuma linha foi afetada pela exclusão, levantamos uma exceção
             if (rowsAffected == 0){
                 throw new RuntimeException("Fail deleting recipe");
             }
@@ -120,7 +115,7 @@ public class RecipesProvider extends ContentProvider {
         int uriType = mMatcher.match(uri);
         SQLiteDatabase db = mHelper.getReadableDatabase();
         Cursor cursor;
-        // Na nossa implementação, o método query é o único que aceita os dois tipos de Uris.
+
         switch (uriType){
             // Esse tipo faz uma busca genérica. Estamos usando ele na listagem dos favoritos
             // e para checar se um receita é favorito (ou seja, se já existe no banco)

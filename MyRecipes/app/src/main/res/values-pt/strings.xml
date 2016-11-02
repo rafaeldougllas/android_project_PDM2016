@@ -10,8 +10,9 @@
     <string name="tab_search" >Buscar</string>
     <string name="tab_favorites">Favoritos</string>
 
-    <string name="msg_added_favorites">Adicionado as favoritas</string>
+    <string name="msg_added_favorites">Adicionada as favoritas</string>
     <string name="msg_removed_favorites">Deletada das favoritas</string>
+    <string name="msg_error_removed_favorites">Ocorreu um erro ao desmarcar como favorita</string>
     <string name="text_undo">Desfazer</string>
     <string name="empty_text">Sem receitas para mostrar no momento</string>
 

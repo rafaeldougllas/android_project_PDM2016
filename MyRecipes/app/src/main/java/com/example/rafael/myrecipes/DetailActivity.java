@@ -19,7 +19,7 @@ import com.example.rafael.myrecipes.model.Recipe;
 
 public class DetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_RECIPE = "recipe"; // vindo dos favoritos
+    public static final String EXTRA_RECIPE = "recipe";
 
     Recipe mRecipe;
     FloatingActionButton fab;
@@ -46,7 +46,6 @@ public class DetailActivity extends AppCompatActivity {
         Glide.with(imgRecipe.getContext()).load(mRecipe.getImage_url()).into(imgRecipe);
 
         // Esse receiver detectará se a Recipe(Receita) foi adicionada ou removida das favoritas
-        // TODO Substituir pelo EventBus?
         mReceiver = new RecipeReceiver();
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
         mLocalBroadcastManager.registerReceiver(mReceiver, new IntentFilter(RecipeEvent.RECIPE_LOADED));
@@ -73,8 +72,9 @@ public class DetailActivity extends AppCompatActivity {
                     .commit();
         }
 
-        //TODO barra de status transparente?
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.getBackground().setAlpha(0);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

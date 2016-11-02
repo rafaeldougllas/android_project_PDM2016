@@ -246,11 +246,10 @@ public class DetailRecipeFragment extends Fragment {
         txtPublisher.setText(recipe.getPublisher());
         txtInfo.setText(recipe.getPublisher_url());
         txtRank.setText(recipe.getSource_url());
-        //rating.setRating((float)(recipe.getSocial_rank()/20.0));
+
 
         // Tanto no JSON quanto no Banco, estamos salvando a lista
         // de receitas separado por vírgula
-        //TODO Criar uma nova tabela e fazer chave estrangeira
         StringBuffer sb = new StringBuffer();
         for (String recip :
                 recipe.getIngredients()) {
@@ -285,7 +284,6 @@ public class DetailRecipeFragment extends Fragment {
                 mRecipe.setId(0);
                 getLoaderManager().destroyLoader(LOADER_DB);
             }
-            //TODO Mensagem de erro ao excluir
 
         } else {
             // Se não é favorito, inclua...
@@ -300,7 +298,7 @@ public class DetailRecipeFragment extends Fragment {
             notifyUpdate(RecipeEvent.RECIPE_FAVORITE_UPDATED);
 
             // Exibe o snackbar que permite o "desfazer"
-            //TODO Internailizar a aplicação
+
             Snackbar.make(getView(),
                     isFavorite ? R.string.msg_removed_favorites : R.string.msg_added_favorites,
                     Snackbar.LENGTH_LONG)
@@ -310,6 +308,10 @@ public class DetailRecipeFragment extends Fragment {
                             toggleFavorite();
                         }
                     }).show();
+        }else{
+            Snackbar.make(getView(),
+                    R.string.msg_error_removed_favorites,
+                    Snackbar.LENGTH_LONG).show();
         }
     }
 
@@ -321,7 +323,6 @@ public class DetailRecipeFragment extends Fragment {
     }
 
     // Método auxiliar para excluir nos favoritos
-    //TODO fazer delete em background
     private boolean deleteFavorite(long recipeId){
         return getActivity().getContentResolver().delete(
                 ContentUris.withAppendedId(RecipesProvider.RECIPES_URI, recipeId),
@@ -329,7 +330,6 @@ public class DetailRecipeFragment extends Fragment {
     }
 
     // Método auxiliar para inserir nos favoritos
-    //TODO fazer insert em background
     private long insertFavorite(Recipe recipe){
         ContentValues contentValues = new ContentValues();
         contentValues.put(RecipeContract.COL_RECIPES_ID , recipe.getRecipe_id());
@@ -345,7 +345,6 @@ public class DetailRecipeFragment extends Fragment {
         contentValues.put(RecipeContract.COL_SOURCE_URL , recipe.getSource_url());
 
         Uri uri = getActivity().getContentResolver().insert(RecipesProvider.RECIPES_URI, contentValues);
-        //TODO mensagem de erro ao falhar
         return ContentUris.parseId(uri);
     }
 }

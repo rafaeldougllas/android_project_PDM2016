@@ -48,12 +48,4 @@ public class RecipeDeserializer implements JsonDeserializer<Recipe> {
             return null;
         }
     }
-
-    float asFloat(String str) {
-        try {
-            return Float.parseFloat(str);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
-    }
 }

@@ -3,7 +3,6 @@ package com.example.rafael.myrecipes.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by rafaeldouglas on 03/10/2016.
